@@ -17,4 +17,4 @@ def game(args):
 			print("You win!")
 			quit()
 
-	print(f"You lose.")
+	print("You lose.")
