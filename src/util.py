@@ -129,7 +129,7 @@ def printBoard(board, hints):
 	Print board
 
 	Example:
-	1,2,3,4 | O,-,-,-
+	1,2,3,4 | -,-,O,-
 	2,3,4,5 | -,X,-,-
 	"""
 	for row in board:
