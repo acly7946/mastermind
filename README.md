@@ -1,2 +1,2 @@
 # Mastermind
-A command line sudoku game.
+A command line mastermind game.
