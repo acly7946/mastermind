@@ -1,0 +1,7 @@
+{
+	"level": "1",
+	"colors": 3,
+	"pegs": 3,
+	"guesses": 10,
+	"code": [1, 2, 1]
+}
