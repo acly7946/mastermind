@@ -9,7 +9,7 @@ def generateCode(pegs, colors):
 	"""
 	return [random.choice(range(1, colors + 1)) for _ in range(pegs)]
 
-def generateBoard(pegs, guesses):
+def initBoard(pegs, guesses):
 	"""
 	Generate 2D list of size guesses * pegs
 
@@ -17,7 +17,7 @@ def generateBoard(pegs, guesses):
 	"""
 	return [[0]*pegs for _ in range(guesses)]
 
-def generateHints(pegs, guesses):
+def initHints(pegs, guesses):
 	"""
 	Generate 2D list of size guesses * pegs
 
