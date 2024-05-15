@@ -15,6 +15,6 @@ def game(args):
 		printBoard(board, hints)
 		if guess == code:
 			print("You win!")
-			break
+			quit()
 
 	print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
