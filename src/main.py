@@ -2,6 +2,7 @@
 
 import argparse
 import computerGame
+import humanGame
 
 def main():
 	parser = argparse.ArgumentParser(description="A command line mastermind game")

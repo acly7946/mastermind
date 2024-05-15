@@ -66,6 +66,42 @@ def parseInput(input):
 	"""
 	return [int(peg) for peg in input.replace(',', '')]
 
+def inputHint(pegs, guess):
+	"""
+	Prompt user until valid hint
+
+	Returns list of characters
+	"""
+	userInput = input("Hint: ")
+
+	while not isValidHint(userInput, pegs, guess):
+		userInput = input("Invalid hint. Try again: ")
+	hint = parseHint(userInput)
+
+	return hint
+
+def isValidHint(input, pegs, guess):
+	"""
+	Check if hint is valid
+
+	Example: X,O,-,-
+
+	Each character is X, O, or -
+	"""
+	hint = input.replace(',', '')
+	if not len(hint) == pegs:
+		return False
+	if not all([peg in ['X', 'O', '-'] for peg in hint]):
+		return False
+	return True
+
+def parseHint(input):
+	"""
+	Parse input string
+
+	Returns list of characters
+	"""
+	return [peg for peg in input.replace(',', '')]
 
 def evaluateGuess(pegs, code, guess):
 	"""
