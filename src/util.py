@@ -35,13 +35,13 @@ def inputGuess(pegs, colors):
 	"""
 	userInput = input("Guess: ")
 
-	while not isValidInput(userInput, pegs, colors):
+	while not isValidGuess(userInput, pegs, colors):
 		userInput = input("Invalid guess. Try again: ")
 	guess = parseInput(userInput)
 
 	return guess
 
-def isValidInput(input, pegs, colors):
+def isValidGuess(input, pegs, colors):
 	"""
 	Check if guess is valid
 
