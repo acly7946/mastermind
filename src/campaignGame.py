@@ -4,7 +4,11 @@ from util import *
 def game(args):
 	level = 1
 	while(True):
-		data = loadLevel(level)
+		try:
+			data = loadLevel(level)
+		except FileNotFoundError:
+			print("Campaign complete!")
+			quit()
 		pegs = data.get("pegs")
 		colors = data.get("colors")
 		guesses = data.get("guesses")
