@@ -28,7 +28,36 @@ def loadLevel(level):
 	"""
 	with open(f"data/{level}.json", 'r') as f:
 		data = json.load(f)
+	validateLevel(data)
 	return data
+
+def validateLevel(data):
+	"""
+	Validate level data
+
+	Example:
+	{
+		"level": int,
+		"colors": int,
+		"pegs": int,
+		"guesses": int,
+		"code": list(int)
+	}
+
+	Order of keys does not matter
+	"""
+	if not data.get("level"):
+		raise ValueError("Level data must have a level key")
+	if not data.get("colors"):
+		raise ValueError("Level data must have a colors key")
+	if not data.get("pegs"):
+		raise ValueError("Level data must have a pegs key")
+	if not data.get("guesses"):
+		raise ValueError("Level data must have a guesses key")
+	if not data.get("code"):
+		raise ValueError("Level data must have a code key")
+	if len(data.get("code")) != data.get("pegs"):
+		raise ValueError("Code must have the same number of pegs as the level")
 
 def printLevelInfo(data):
 	"""
