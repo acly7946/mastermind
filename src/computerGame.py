@@ -12,9 +12,9 @@ def game(args):
 		guess = inputGuess(pegs, colors)
 		board[guessNum] = guess
 		hints[guessNum] = evaluateGuess(pegs, code, guess)
+		printBoard(board, hints)
 		if guess == code:
 			print("You win!")
 			break
-		printBoard(board, hints)
 
 	print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
