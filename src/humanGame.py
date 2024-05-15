@@ -14,7 +14,10 @@ def game(args):
 		hints[guessNum] = hint
 		printBoard(board, hints)
 		if hint == ['X', 'X', 'X', 'X']:
-			print("You win!")
-			quit()
+			win = True
+			break
 
-	print("You lose.")
+	if win:
+		print("You win!")
+	else:
+		print("You lose.")

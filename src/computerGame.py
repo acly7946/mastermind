@@ -7,6 +7,7 @@ def game(args):
 	code = generateCode(pegs, colors)
 	board = initBoard(pegs, guesses)
 	hints = initHints(pegs, guesses)
+	win = False
 
 	for guessNum in range(guesses):
 		guess = inputGuess(pegs, colors)
@@ -14,7 +15,10 @@ def game(args):
 		hints[guessNum] = evaluateGuess(pegs, code, guess)
 		printBoard(board, hints)
 		if guess == code:
-			print("You win!")
-			quit()
+			win = True
+			break
 
-	print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
+	if win:
+		print("You win!")
+	else:
+		print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
