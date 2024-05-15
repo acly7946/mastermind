@@ -5,8 +5,8 @@ def game(args):
 	colors = args.colors
 	guesses = args.guesses
 	code = generateCode(pegs, colors)
-	board = generateBoard(pegs, guesses)
-	hints = generateHints(pegs, guesses)
+	board = initBoard(pegs, guesses)
+	hints = initHints(pegs, guesses)
 
 	for guessNum in range(guesses):
 		guess = inputGuess(pegs, colors)
