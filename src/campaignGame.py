@@ -2,25 +2,32 @@ import json
 from util import *
 
 def game(args):
-	data = loadLevel(1)
-	pegs = data.get("pegs")
-	colors = data.get("colors")
-	guesses = data.get("guesses")
-	code = data.get("code")
-	board = initBoard(pegs, guesses)
-	hints = initHints(pegs, guesses)
+	level = 1
+	while(True):
+		data = loadLevel(level)
+		pegs = data.get("pegs")
+		colors = data.get("colors")
+		guesses = data.get("guesses")
+		code = data.get("code")
+		board = initBoard(pegs, guesses)
+		hints = initHints(pegs, guesses)
+		win = False
 
-	printLevelInfo(data)
-	for guessNum in range(guesses):
-		guess = inputGuess(pegs, colors)
-		board[guessNum] = guess
-		hints[guessNum] = evaluateGuess(pegs, code, guess)
-		printBoard(board, hints)
-		if guess == code:
-			print("You win!")
-			quit()
+		printLevelInfo(data)
+		for guessNum in range(guesses):
+			guess = inputGuess(pegs, colors)
+			board[guessNum] = guess
+			hints[guessNum] = evaluateGuess(pegs, code, guess)
+			printBoard(board, hints)
+			if guess == code:
+				win = True
+				break
 
-	print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
+		if win:
+			print("You win! Next Level! \n")
+			level += 1
+		else:
+			print(f"You lose. The code was: {str(code).strip('[]').replace(' ', '')}")
 
 def loadLevel(level):
 	"""
