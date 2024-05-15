@@ -103,6 +103,7 @@ def parseHint(input):
 	"""
 	return [peg for peg in input.replace(',', '')]
 
+
 def evaluateGuess(pegs, code, guess):
 	"""
 	Check guess against code
