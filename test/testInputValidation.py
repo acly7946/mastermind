@@ -14,7 +14,7 @@ class TestInputValidation(unittest.TestCase):
 		self.assertFalse(isValidGuess('1,2,3', 4, 6)) # too few pegs
 		self.assertFalse(isValidGuess('1,2,3,4,5', 4, 6)) # too many pegs
 		self.assertFalse(isValidGuess('1,2,3,7', 4, 6)) # out of color range
-		self.assertFalse(isValidGuess('1,2,3,-1', 4, 6)) # invalid peg
+		self.assertFalse(isValidGuess('1,2,3,A', 4, 6)) # invalid peg
 
 	def testHintValidation(self):
 		"""
