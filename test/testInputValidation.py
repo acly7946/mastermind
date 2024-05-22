@@ -1,7 +1,7 @@
 import unittest
 from src.util import *
 
-class TestInput(unittest.TestCase):
+class TestInputValidation(unittest.TestCase):
 	def testGuessValidation(self):
 		"""
 		Tests guess validation based on a game of
