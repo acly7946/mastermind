@@ -2,11 +2,11 @@ import unittest
 from src.util import *
 
 class TestInput(unittest.TestCase):
-	"""
-	Tests guess validation based on a game of
-	4 pegs and 6 colors
-	"""
 	def testGuessValidation(self):
+		"""
+		Tests guess validation based on a game of
+		4 pegs and 6 colors
+		"""
 		self.assertTrue(isValidGuess('1,2,3,4', 4, 6)) # valid
 		self.assertFalse(isValidGuess('', 4, 6)) # empty
 		self.assertFalse(isValidGuess(',,,', 4, 6)) # 4 empty pegs
@@ -17,6 +17,10 @@ class TestInput(unittest.TestCase):
 		self.assertFalse(isValidGuess('1,2,3,-1', 4, 6)) # invalid peg
 
 	def testHintValidation(self):
+		"""
+		Tests hint validation based on a game of
+		4 pegs
+		"""
 		self.assertTrue(isValidHint('X,X,X,X', 4)) # valid
 		self.assertFalse(isValidHint('', 4)) # empty
 		self.assertFalse(isValidHint(',,,', 4)) # 4 empty pegs
