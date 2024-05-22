@@ -1,5 +1,5 @@
 import unittest
-from src.util import isValidGuess
+from src.util import *
 
 class TestInput(unittest.TestCase):
 	"""
@@ -15,6 +15,14 @@ class TestInput(unittest.TestCase):
 		self.assertFalse(isValidGuess('1,2,3,4,5', 4, 6)) # too many pegs
 		self.assertFalse(isValidGuess('1,2,3,7', 4, 6)) # out of color range
 		self.assertFalse(isValidGuess('1,2,3,-1', 4, 6)) # invalid peg
+
+	def testHintValidation(self):
+		self.assertTrue(isValidHint('X,X,X,X', 4)) # valid
+		self.assertFalse(isValidHint('', 4)) # empty
+		self.assertFalse(isValidHint(',,,', 4)) # 4 empty pegs
+		self.assertFalse(isValidHint('X,X,X', 4)) # too few pegs
+		self.assertFalse(isValidHint('X,X,X,X,X', 4)) # too many pegs
+		self.assertFalse(isValidHint('X,X,X,?', 4)) # invalid peg
 
 if __name__ == '__main__':
 	unittest.main()
