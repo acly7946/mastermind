@@ -104,7 +104,7 @@ def parseHint(input):
 	return [peg for peg in input.replace(',', '')]
 
 
-def evaluateGuess(pegs, code, guess):
+def evaluateGuess(code, guess):
 	"""
 	Check guess against code
 
@@ -115,7 +115,7 @@ def evaluateGuess(pegs, code, guess):
 	- is incorrect
 	"""
 	hint = []
-	for i in range(pegs):
+	for i in range(len(code)):
 		if guess[i] == code[i]:
 			hint.append('X')
 		elif guess[i] in code:

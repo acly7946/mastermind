@@ -12,7 +12,7 @@ def game(args):
 	for guessNum in range(guesses):
 		guess = inputGuess(pegs, colors)
 		board[guessNum] = guess
-		hints[guessNum] = evaluateGuess(pegs, code, guess)
+		hints[guessNum] = evaluateGuess(code, guess)
 		printBoard(board, hints)
 		if guess == code:
 			win = True
