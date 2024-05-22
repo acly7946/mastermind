@@ -80,7 +80,7 @@ def inputHint(pegs, guess):
 
 	return hint
 
-def isValidHint(input, pegs, guess):
+def isValidHint(input, pegs):
 	"""
 	Check if hint is valid
 
