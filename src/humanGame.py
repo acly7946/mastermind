@@ -9,7 +9,7 @@ def game(args):
 
 	for guessNum in range(guesses):
 		guess = inputGuess(pegs, colors)
-		hint = inputHint(pegs, guess)
+		hint = inputHint(pegs)
 		board[guessNum] = guess
 		hints[guessNum] = hint
 		printBoard(board, hints)

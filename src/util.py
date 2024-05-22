@@ -66,7 +66,7 @@ def parseInput(input):
 	"""
 	return [int(peg) for peg in input.replace(',', '')]
 
-def inputHint(pegs, guess):
+def inputHint(pegs):
 	"""
 	Prompt user until valid hint
 
