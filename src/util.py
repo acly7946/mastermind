@@ -105,24 +105,33 @@ def parseHint(input):
 
 
 def evaluateGuess(code, guess):
-	"""
-	Check guess against code
+    """
+    Check guess against code
 
-	Returns a hint in the form O,X,-,O
+    Returns a hint in the form O,X,-
 
-	X is correct
-	O is correct color wrong position
-	- is incorrect
-	"""
-	hint = []
-	for i in range(len(code)):
-		if guess[i] == code[i]:
-			hint.append('X')
-		elif guess[i] in code:
-			hint.append('O')
-		else:
-			hint.append('-')
-	return hint
+    X is correct
+    O is correct color wrong position
+    - is incorrect
+    """
+    hint = ['-'] * len(code)
+    code_copy = list(code)
+    guess_copy = list(guess)
+
+    # First pass: check for correct (X)
+    for i in range(len(code)):
+        if guess[i] == code[i]:
+            hint[i] = 'X'
+            code_copy[i] = None  # Remove matched items
+            guess_copy[i] = None
+
+    # Second pass: check for correct color wrong position (O)
+    for i in range(len(guess)):
+        if guess_copy[i] is not None and guess_copy[i] in code_copy:
+            hint[i] = 'O'
+            code_copy[code_copy.index(guess_copy[i])] = None  # Remove matched item from copy
+
+    return hint
 
 def printBoard(board, hints):
 	"""
