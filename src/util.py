@@ -74,7 +74,7 @@ def inputHint(pegs, guess):
 	"""
 	userInput = input("Hint: ")
 
-	while not isValidHint(userInput, pegs, guess):
+	while not isValidHint(userInput, pegs):
 		userInput = input("Invalid hint. Try again: ")
 	hint = parseHint(userInput)
 
